@@ -75,3 +75,10 @@ $ udf a b
 
 ['path to myapp module', 'a', 'b']
 ```
+
+## change branch
+add branch name in requirements.txt
+
+```requirements.txt
+-e git+https://github.com/TomHortons/py_command.git@master#egg=py_command
+```
