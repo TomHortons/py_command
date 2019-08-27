@@ -49,3 +49,29 @@ $ docker run example
 
 ['/app/env/bin/myapp', 'a', 'b']
 ```
+
+## change command
+To change command name, replace entry_point at setup.py.
+
+```setup.py
+if __name__ == "__main__":
+    setuptools.setup(
+        name='udf',
+        version='0.0.1',
+        packages=setuptools.find_packages(),
+        entry_points={
+            'console_scripts':[
+                'udf = myapp.main:main',
+            ],
+        },
+    )
+```
+
+And run command.
+```
+$ python setup.py sdist
+$ pip install dist/udf-0.0.1.tar.gz
+$ udf a b
+
+['path to myapp module', 'a', 'b']
+```
